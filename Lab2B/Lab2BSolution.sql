@@ -19,8 +19,7 @@ GO
 SELECT Staff.FirstName, Staff.LastName, COUNT(*) AS 'Number of Consignments'
 FROM Staff, Consignment 
 WHERE Staff.StaffID = Consignment.StaffID
-GROUP BY Staff.FirstName, Staff.LastName
-ORDER BY [Number of Consignments] DESC
+GROUP BY Staff.StaffID, Staff.FirstName, Staff.LastName
 GO
 
 /* 3.Select the average Category Cost. */
@@ -53,6 +52,7 @@ GO
 SELECT DATEPART(mm, Consignment.Date) AS 'Month', SUM(Consignment.Subtotal) AS 'Amount'
 FROM Consignment
 GROUP BY MONTH(Consignment.Date)
+ORDER BY [Month] ASC
 GO
 
 /* 8.Select the StaffTypeDescriptions of the staff types that have no staff in them. */
