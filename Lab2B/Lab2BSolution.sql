@@ -72,7 +72,7 @@ GO
 SELECT Staff.FirstName + ' ' + Staff.LastName AS 'Full Name'
 FROM Staff
 WHERE LEN(Staff.LastName) >= 5 AND LEN(Staff.LastName) <= 8
-UNION
+	UNION
 SELECT Customer.FirstName + ' ' + Customer.LastName AS 'Full Name'
 FROM Customer
 WHERE LEN(Customer.LastName) >= 5 AND LEN(Customer.LastName) <= 8
@@ -98,9 +98,14 @@ GO
 
 /* a)Insert the following records into the Staff table given the following data: */
 INSERT INTO Staff
-VALUES('999999', 'John', 'Denver', 'Y', 23.0, 3)
+	(StaffID, FirstName, LastName, Active, Wage, StaffTypeID)
+VALUES
+	('999999', 'John', 'Denver', 'Y', 23.0, 3)
+
 INSERT INTO Staff
-VALUES('123456', 'Cindy', 'Lauper', 'N', (SELECT AVG(Staff.wage) FROM Staff), 2)
+	(StaffID, FirstName, LastName, Active, Wage, StaffTypeID)
+VALUES
+	('123456', 'Cindy', 'Lauper', 'N', (SELECT AVG(Staff.wage) FROM Staff), 2)
 GO
 
 /* Increase the DiscountPercentage of the Reward that has a RewardDescription of “Exclusive” by 2. */
