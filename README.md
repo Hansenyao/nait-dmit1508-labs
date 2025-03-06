@@ -1,2 +1,2 @@
 # nait-datbase-labs
-All database laboratory projects at NAIT
+SQL labs for DMIT1508 (Database) course at NAIT.
